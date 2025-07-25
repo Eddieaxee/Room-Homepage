@@ -1,59 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Room homepage</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts: Inter for a modern sans-serif look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  Home
-  Shop
-  About
-  Contact
 
-  Discover innovative ways to decorate
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">
+                <!-- Placeholder for Room Logo SVG -->
+                <img src="images/logo.svg" alt="Room Logo" class="room-logo">
+            </a>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#" class="nav-link">home</a></li>
+                    <li><a href="#" class="nav-link">shop</a></li>
+                    <li><a href="#" class="nav-link">about</a></li>
+                    <li><a href="#" class="nav-link">contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <!-- Placeholder for Hamburger Menu Icon SVG -->
+                <img src="images/icon-hamburger.svg" alt="Open Menu" class="icon-hamburger">
+            </div>
+        </div>
 
-  We provide unmatched quality, comfort, and style for property owners across the country. 
-  Our experts combine form and function in bringing your vision to life. Create a room in your 
-  own style with our collection and make your property a reflection of you and what you love.
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu-overlay">
+            <div class="mobile-menu-close">
+                <!-- Placeholder for Close Menu Icon SVG -->
+                <img src="images/icon-close.svg" alt="Close Menu" class="icon-close">
+            </div>
+            <nav class="mobile-nav">
+                <ul class="mobile-nav-list">
+                    <li><a href="#" class="mobile-nav-link">home</a></li>
+                    <li><a href="#" class="mobile-nav-link">shop</a></li>
+                    <li><a href="#" class="mobile-nav-link">about</a></li>
+                    <li><a href="#" class="mobile-nav-link">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  Shop now
-
-  We are available all across the globe
-
-  With stores all over the world, it's easy for you to find furniture for your home or place of business. 
-  Locally, we’re in most major cities throughout the country. Find the branch nearest you using our 
-  store locator. Any questions? Don't hesitate to contact us today.
-
-  Shop now
-
-  Manufactured with the best materials
-
-  Our modern furniture store provide a high level of quality. Our company has invested in advanced technology 
-  to ensure that every product is made as perfect and as consistent as possible. With three decades of 
-  experience in this industry, we understand what customers want for their home and office.
-
-  Shop now
-
-  About our furniture
-
-  Our multifunctional collection blends design and function to suit your individual taste.
-  Make each room unique, or pick a cohesive theme that best express your interests and what
-  inspires you. Find the furniture pieces you need, from traditional to contemporary styles
-  or anything in between. Product specialists are available to help you create your dream space.
+    <main class="main-layout">
+        <section class="hero-slider">
+            <picture class="hero-image-container">
+                <!-- Placeholder for Hero Image (Desktop source) -->
+                <img src="images/desktop-image-hero-1.jpg" alt="Modern furniture" class="hero-desktop-img" id="hero-desktop-img">
+                <!-- Placeholder for Hero Image (Mobile source) -->
+                <img src="images/mobile-image-hero-1.jpg" alt="Modern furniture" class="hero-mobile-img" id="hero-mobile-img">
   
-  <div class="attribution">
+            </picture>
+            <div class="slider-controls">
+              <button class="slider-btn" id="prev-slide">
+                  <!-- Placeholder for Left Arrow Icon SVG -->
+                  <img src="images/icon-angle-left.svg" alt="Previous Slide">
+              </button>
+              <button class="slider-btn" id="next-slide">
+                  <!-- Placeholder for Right Arrow Icon SVG -->
+                  <img src="images/icon-angle-right.svg" alt="Next Slide">
+              </button>
+            </div>
+            <div class="hero-text-content">
+                <h1 id="hero-title">Discover innovative ways to decorate</h1>
+                <p id="hero-description">We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style and make your property a reflection of you and what you love.</p>
+                <a href="#" class="shop-now-link">
+                    SHOP NOW
+                    <!-- Placeholder for Arrow Icon SVG -->
+                    <img src="images/icon-arrow.svg" alt="Shop Now Arrow" class="shop-arrow">
+                </a>
+             
+            </div>
+            
+            
+        </section>
+
+        <section class="about-section">
+            <div class="about-image-container">
+                <!-- Placeholder for About Dark Image -->
+                <img src="images/image-about-dark.jpg" alt="About Dark Furniture" class="about-img">
+            </div>
+            <div class="about-text-content">
+                <h2 class="about-title">ABOUT OUR FURNITURE</h2>
+                <p class="about-description">Our multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you. Find the furniture pieces you need, from traditional to contemporary styles or anything in between. Product specialists are available to help you create your dream space.</p>
+            </div>
+            <div class="about-image-light-container">
+                <!-- Placeholder for About Light Image -->
+                <img src="images/image-about-light.jpg" alt="About Light Furniture" class="about-img">
+            </div>
+        </section>
+    </main>
+    <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="#">3ddie</a>.
   </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
