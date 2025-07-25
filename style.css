@@ -1,0 +1,502 @@
+/* Universal Box Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Basic Body Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: hsl(0, 0%, 100%); /* White */
+    color: hsl(0, 0%, 63%); /* Dark Grayish Blue */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scroll from mobile menu */
+}
+
+/* Typography Defaults */
+h1 {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 0%); /* Black */
+    line-height: 1;
+    margin: 0;
+}
+
+h2 {
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 700;
+    color: hsl(0, 0%, 0%); /* Black */
+    text-transform: uppercase;
+    letter-spacing: 0.25em; /* Adjust as needed */
+    margin: 0;
+}
+
+p {
+    font-size: 0.9375rem; /* 15px */
+    line-height: 1.6;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+    color: hsl(5, 85%, 63%); /* Soft Orange */
+}
+
+/* Header Styling */
+.header {
+    width: 100%;
+    padding: 2rem 1.5rem; /* Adjust padding for mobile */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Position absolutely to overlay hero */
+    top: 0;
+    left: 0;
+    z-index: 100; /* Ensure header is above other content */
+}
+
+.header-content {
+    width: 100%;
+    max-width: 1440px; /* Max width for desktop content */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo .room-logo {
+    height: 20px; /* Adjust logo size */
+    width: auto;
+    margin-right: 2rem; /* Space between logo and nav on desktop */
+}
+
+/* Main Navigation (Desktop) */
+.main-nav {
+    display: none; /* Hidden by default on mobile */
+}
+
+.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    color: hsl(0, 0%, 100%); /* White for header links */
+    position: relative; /* For underline effect */
+}
+
+.nav-link:hover {
+    color: hsl(0, 0%, 100%); /* Stays white */
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Adjust distance from text */
+    width: 0;
+    height: 2px;
+    background-color: hsl(0, 0%, 100%); /* White underline */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: block; /* Show on mobile */
+    cursor: pointer;
+    z-index: 100;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.mobile-menu-toggle:active {
+    opacity: 0.5;
+}
+
+.mobile-menu-toggle .icon-hamburger {
+    width: 24px; /* Adjust icon size */
+    height: auto;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0; /* Changed from right to left for full width overlay */
+    width: 100%;
+    background-color: rgba(0, 0%, 0%, 0.5); /* Dark overlay */
+    visibility: hidden; /* Initially hidden */
+    opacity: 0; /* Start hidden for fade */
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    z-index: 101;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem 1.5rem; /* Padding for mobile menu */
+}
+
+.mobile-menu-overlay.open {
+    visibility: visible; /* Make visible */
+    opacity: 1; /* Fade in */
+}
+
+.mobile-nav {
+    background-color: hsl(0, 0%, 100%); /* White background for menu */
+    height: 100%;
+    width: 100%; /* Full width for mobile menu content */
+    position: absolute;
+    top: 0;
+    left: 0; /* Position at left edge */
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-100%); /* Start off-screen (upwards) */
+    transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu-overlay.open .mobile-nav {
+    transform: translateY(0); /* Slide in from top */
+}
+
+.mobile-menu-close {
+    position: absolute;
+    top: 2rem; /* Align with header padding */
+    right: 1.5rem; /* Align with header padding */
+    cursor: pointer;
+    z-index: 102;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.mobile-menu-close:active {
+    opacity: 0.5;
+}
+
+.mobile-menu-close .icon-close {
+    width: 20px; /* Adjust icon size */
+    height: auto;
+}
+
+.mobile-nav-list {
+    list-style: none;
+    padding: 2rem 0; /* Add padding for spacing */
+    margin-top: 0; /* Reset margin */
+    display: flex;
+    flex-grow: 1; /* Take available space */
+    gap: 1.5rem;
+}
+
+.mobile-nav-link {
+    font-size: 1.125rem; /* 18px */
+    font-weight: 700;
+    color: hsl(0, 0%, 0%); /* Black for mobile menu links */
+}
+
+.mobile-nav-link:hover {
+    color: hsl(0, 0%, 63%); /* Dark Grayish Blue on hover */
+}
+
+/* Main Layout - Mobile First */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1440px; /* Max width for desktop content */
+    margin: 0 auto; /* Center content */
+    flex-grow: 1;
+}
+
+/* Hero Slider Section - Mobile Positioning */
+.hero-slider {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-template-rows: auto auto auto; /* Image, Controls, Text */
+    position: relative; /* For absolute positioning of controls on desktop */
+}
+
+.hero-image-container {
+    grid-column: 1 / -1; /* Spans full width */
+    grid-row: 1 / 2; /* First row */
+    width: 100%;
+    height: auto;
+    overflow: hidden; /* Hide parts of image during transitions */
+}
+
+.hero-mobile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-desktop-img {
+    display: none; /* Hide desktop image on mobile */
+}
+
+.hero-text-content {
+    grid-column: 1 / -1; /* Spans full width */
+    grid-row: 3 / 4; /* Third row (after controls) */
+    padding: 3rem 1.5rem; /* Adjust padding for mobile */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.hero-title {
+    font-size: 2.5rem; /* 40px */
+    line-height: 1.2;
+}
+
+.shop-now-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: hsl(0, 0%, 0%); /* Black */
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.8em; /* Wide letter spacing */
+    text-transform: uppercase;
+    margin-top: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.shop-now-link:hover {
+    color: hsl(0, 0%, 63%); /* Dark Grayish Blue on hover */
+}
+
+.shop-arrow {
+    width: 40px; /* Adjust arrow size */
+    height: auto;
+}
+
+/* Slider Controls - Mobile Positioning */
+.slider-controls {
+    grid-column: 1/ 1; /* Span full width */
+    grid-row: 2 / 3; /* Occupy the second row (between image and text) */
+    position: absolute;/* Make it relative to its grid cell */
+    right: 0; /* Remove absolute positioning properties from previous version */
+    display: flex;
+    justify-content: flex-end; /* Push buttons to the right */
+    background-color: hsl(0, 0%, 0%); /* Black background */
+    z-index: 10;
+    bottom: 0rem; /* Position at the bottom of the hero section */
+}
+
+.slider-btn {
+    background: none;
+    border: none;
+    padding: 1.5rem 2rem; /* Large clickable area */
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.slider-btn:hover {
+    background-color: hsl(0, 0%, 27%); /* Dark Gray on hover */
+}
+
+.slider-btn img {
+    width: 12px; /* Adjust arrow icon size */
+    height: auto;
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+}
+
+.about-image-container,
+.about-image-light-container {
+    width: 100%;
+    height: auto;
+}
+
+.about-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.about-text-content {
+    padding: 3rem 1.5rem; /* Adjust padding for mobile */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.about-title {
+    font-size: 1rem; /* 16px */
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .header {
+        padding: 3.5rem 4rem; /* More padding on desktop */
+    }
+
+    .header-content {
+        justify-content: flex-start; /* Align logo and nav to start */
+    }
+
+    .logo .room-logo {
+        margin-right: 3.5rem; /* Larger space on desktop */
+    }
+
+    .main-nav {
+        display: block; /* Show on desktop */
+    }
+
+    .mobile-menu-toggle {
+        display: none; /* Hide on desktop */
+    }
+
+    .mobile-menu-overlay {
+        display: none; /* Hide on desktop */
+    }
+
+    .main-layout {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr); /* 12-column grid for main layout */
+        grid-template-rows: auto auto; /* Two rows: hero slider and about section */
+    }
+
+    /* Hero Slider Section on Desktop */
+    .hero-slider {
+        grid-column: 1 / 13; /* Spans all 12 columns */
+        grid-row: 1 / 2;
+        display: grid;
+        grid-template-columns: 2fr 1.5fr; /* Image takes more space than text */
+        position: relative; /* Essential for absolute positioning of slider-controls */
+    }
+
+    .hero-image-container {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .hero-mobile-img {
+        display: none; /* Hide mobile image on larger screens */
+    }
+
+    .hero-desktop-img {
+        display: block; /* Show desktop image on larger screens */
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .hero-text-content {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        margin: 0 2rem; /* Adjust padding for desktop */
+        text-align: left;
+        align-items: flex-start; /* Align text to left */
+    }
+
+    #hero-title {
+        font-size: 2rem; 
+    }
+
+    #hero-description {
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+    .shop-now-link {
+        margin-top: 0.5rem; /* Adjust margin */
+        font-size: 0.75rem; /* 12px */
+        letter-spacing: 0.75em; /* Adjust letter spacing for desktop */
+    }
+
+    /* Slider Controls - Desktop Positioning */
+    .slider-controls {
+        grid-column: 2 / 3; /* Place in the text content's column */
+        grid-row: 1 / 2; /* Place in the text content's row */
+        width:fit-content;
+        position: absolute; /* Position absolutely within this grid cell */
+        bottom: 0;
+        left: 0; /* Align to the left of the text content area */
+        display: flex;
+        justify-content: flex-start; /* Ensure buttons are at the start */
+        background-color: hsl(0, 0%, 0%);
+        z-index: 10;
+    }
+
+    /* About Section on Desktop */
+    .about-section {
+        grid-column: 1 / -1; /* Spans all 12 columns */
+        grid-row: 2 / 3;
+        display: grid;
+        grid-template-columns: 3fr 4fr 3fr; /* Dark image, text, light image */
+    }
+
+    .about-image-container {
+        grid-column: 1 / 2;
+    }
+
+    .about-text-content {
+        grid-column: 2 / 3;
+        padding:  3rem; /* Adjust padding for desktop */
+        text-align: left;
+    }
+
+    .about-title {
+        font-size: 1rem;
+        padding: 0; /* Add padding for better spacing */
+        margin: 0;
+    }
+
+    .about-description {
+        font-size: 0.75rem; /* 12px */
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-image-light-container {
+        grid-column: 3 / 4;
+    }
+
+    .about-img {
+        width: 100%;
+        height:85%;
+        object-fit: cover; /* Ensure images cover their containers */
+    }
+}
+
+/* Even Larger Desktop Styles (e.g., for very wide screens) */
+@media (min-width: 1024px) {
+    .hero-slider {
+        grid-template-columns: 2fr 1.2fr; /* Slightly less text space for wider screens */
+    }
+    .hero-title {
+        font-size: 4rem; /* Even larger title */
+    }
+    .hero-text-content {
+        padding: 4rem 2rem; /* Adjust padding for larger screens */
+    }
+    .about-text-content {
+        padding: 4rem 3rem; /* Adjust padding for larger screens */
+    }
+    /* No change needed for .slider-controls here, as it's relative to its grid cell */
+}
